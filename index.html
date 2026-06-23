@@ -28,10 +28,6 @@ header h1{font-family:'Playfair Display',serif;font-size:1rem;color:var(--amber-
 /* ── TOOLBAR ── */
 #toolbar{background:var(--pine-dark);border-bottom:1px solid rgba(255,255,255,.05);padding:6px 12px;display:flex;align-items:center;gap:8px;flex-shrink:0;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}
 #toolbar::-webkit-scrollbar{display:none}
-.tinput{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:20px;color:var(--cream);font-family:'DM Sans',sans-serif;font-size:.8rem;padding:5px 12px;outline:none;width:160px;flex-shrink:0}
-@media(min-width:400px){.tinput{width:190px}}
-.tinput:focus{border-color:var(--amber)}
-.tinput::placeholder{color:rgba(246,241,233,.3)}
 .chip{font-size:.65rem;padding:4px 10px;border-radius:10px;border:1px solid;cursor:pointer;font-weight:500;transition:all .12s;user-select:none;white-space:nowrap;flex-shrink:0;-webkit-tap-highlight-color:transparent}
 .chip-soon{border-color:#22c55e;color:#22c55e}.chip-soon.on{background:#22c55e;color:#fff}
 .chip-2wk{border-color:var(--amber);color:var(--amber)}.chip-2wk.on{background:var(--amber);color:#fff}
@@ -334,7 +330,6 @@ header h1{font-family:'Playfair Display',serif;font-size:1rem;color:var(--amber-
 <header>
   <div style="display:flex;align-items:center;gap:10px">
     <h1>🏹 Auction Hunter</h1>
-    <span class="htag">EasyLive UK</span>
   </div>
   <p style="margin:0;font-size:0.75rem;color:var(--muted);max-width:400px;line-height:1.4">A live map of UK auction houses — see what's on today and coming up, and click through to bid</p>
   <div style="display:flex;align-items:center;gap:8px">
@@ -344,13 +339,10 @@ header h1{font-family:'Playfair Display',serif;font-size:1rem;color:var(--amber-
   </div>
 </header>
 <div id="toolbar">
-  <input id="tsearch" class="tinput" type="search" placeholder="🔍 Name, town or postcode…" autocomplete="off">
   <span class="chip chip-soon" id="chip-soon" onclick="setChip('soon')">This week</span>
   <span class="chip chip-2wk" id="chip-2wk" onclick="setChip('2wk')">2 weeks</span>
   <span class="chip chip-urgent" id="chip-urgent" onclick="setChip('urgent')">🟢 Now</span>
   <button class="tbtn" onclick="resetAll()">All</button>
-
-  <button class="tbtn" id="settings-btn" onclick="toggleSettingsPanel()" style="border-color:rgba(255,255,255,.2);color:rgba(246,241,233,.5)" title="Settings">⚙</button>
 </div>
 <div id="body">
   <div id="map"></div>
@@ -816,7 +808,6 @@ function setChip(mode){
 
 function resetAll(){
   document.getElementById('sbsearch').value='';
-  document.getElementById('tsearch').value='';
   activeChip='all';
   document.getElementById('chip-soon').classList.remove('on');
   document.getElementById('chip-2wk').classList.remove('on');
@@ -825,7 +816,6 @@ function resetAll(){
 }
 
 document.getElementById('sbsearch').addEventListener('input',()=>buildSB(filteredH()));
-document.getElementById('tsearch').addEventListener('input',function(){document.getElementById('sbsearch').value=this.value;buildSB(filteredH());});
 
 // On mobile: close sheet when tapping the map background (not a pin)
 map.on('click', ()=>{ if(window.innerWidth < 768) closeSheet(); });
