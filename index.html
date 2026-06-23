@@ -15,7 +15,7 @@ html,body{height:100%;overflow:hidden}
 body{font-family:'DM Sans',sans-serif;display:flex;flex-direction:column;background:var(--pine-xd);touch-action:manipulation}
 
 /* ── HEADER ── */
-header{background:var(--pine-dark);border-bottom:1px solid rgba(255,255,255,.06);padding:0 14px;height:48px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;z-index:1000}
+header{background:var(--pine-dark);border-bottom:1px solid rgba(255,255,255,.06);padding:8px 14px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;z-index:1000;flex-wrap:wrap;gap:4px}
 header h1{font-family:'Playfair Display',serif;font-size:1rem;color:var(--amber-lt);white-space:nowrap}
 .htag{font-size:.6rem;background:rgba(200,145,42,.15);color:var(--amber);border:1px solid rgba(200,145,42,.3);padding:2px 7px;border-radius:10px;letter-spacing:.06em;text-transform:uppercase;display:none}
 @media(min-width:480px){.htag{display:inline}}
@@ -329,7 +329,7 @@ header h1{font-family:'Playfair Display',serif;font-size:1rem;color:var(--amber-
 <body>
 <header>
   <div style="display:flex;align-items:center;gap:10px">
-    <img src="logo.png" alt="Auction Hunter" style="height:36px;width:auto">
+    <img src="logo.png" alt="Auction Hunter" style="height:28px;width:auto;max-width:180px">
   </div>
   <div style="display:flex;align-items:center;gap:8px">
     <span id="update-status">✅ Loading dates…</span>
