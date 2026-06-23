@@ -29,7 +29,7 @@ header h1{font-family:'Playfair Display',serif;font-size:1rem;color:var(--amber-
 #toolbar{background:var(--pine-dark);border-bottom:1px solid rgba(255,255,255,.05);padding:6px 12px;display:flex;align-items:center;gap:8px;flex-shrink:0;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}
 #toolbar::-webkit-scrollbar{display:none}
 .chip{font-size:.65rem;padding:4px 10px;border-radius:10px;border:1px solid;cursor:pointer;font-weight:500;transition:all .12s;user-select:none;white-space:nowrap;flex-shrink:0;-webkit-tap-highlight-color:transparent}
-.chip-soon{border-color:#22c55e;color:#22c55e}.chip-soon.on{background:#22c55e;color:#fff}
+.chip-soon{border-color:#f5e642;color:#f5e642}.chip-soon.on{background:#f5e642;color:#162118}
 .chip-2wk{border-color:var(--amber);color:var(--amber)}.chip-2wk.on{background:var(--amber);color:#fff}
 .chip-urgent{border-color:#22c55e;color:#22c55e;font-weight:700}.chip-urgent.on{background:#22c55e;color:#162118;box-shadow:0 0 8px rgba(34,197,94,.5)}
 .tbtn{font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:600;padding:5px 11px;border-radius:20px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.07);color:rgba(246,241,233,.75);cursor:pointer;white-space:nowrap;flex-shrink:0;transition:all .15s;-webkit-tap-highlight-color:transparent}
@@ -98,7 +98,8 @@ header h1{font-family:'Playfair Display',serif;font-size:1rem;color:var(--amber-
 .pu-btn:active{background:var(--amber-lt)}
 
 /* ── LEGEND ── */
-#legend{position:absolute;top:10px;right:10px;background:rgba(22,33,24,.92);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:8px 11px;z-index:800;font-size:.65rem;color:rgba(246,241,233,.65);backdrop-filter:blur(4px)}
+#legend{position:absolute;top:10px;right:10px;background:rgba(22,33,24,.92);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:8px 11px;z-index:800;font-size:.65rem;color:rgba(246,241,233,.65);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .15s}
+#legend.visible{opacity:1}
 .leg-t{font-weight:600;margin-bottom:5px;color:var(--cream);letter-spacing:.05em;text-transform:uppercase;font-size:.58rem}
 .leg-r{display:flex;align-items:center;gap:6px;margin-bottom:3px}
 .leg-d{width:9px;height:9px;border-radius:50%;flex-shrink:0}
@@ -121,6 +122,10 @@ header h1{font-family:'Playfair Display',serif;font-size:1rem;color:var(--amber-
 .tt-date.soon{color:#22c55e}.tt-date.up{color:var(--upcoming)}.tt-date.fut{color:var(--amber-lt)}
 .tt-nodate{font-size:.7rem;color:rgba(246,241,233,.35);font-style:italic}
 .tt-more{font-size:.65rem;color:rgba(246,241,233,.4);margin-top:3px}
+.tt-badge{display:inline-block;font-size:.58rem;padding:1px 7px;border-radius:8px;font-weight:600;margin-left:6px;vertical-align:middle}
+.tt-badge-now{background:rgba(34,197,94,.15);color:#22c55e}
+.tt-badge-soon{background:rgba(245,230,66,.15);color:#f5e642}
+.tt-badge-later{background:rgba(200,145,42,.15);color:var(--amber)}
 /* ── UPDATE DATES PANEL ── */
 #update-panel{
   position:absolute;top:10px;right:10px;
@@ -340,9 +345,9 @@ header h1{font-family:'Playfair Display',serif;font-size:1rem;color:var(--amber-
   </div>
 </header>
 <div id="toolbar">
-  <span class="chip chip-soon" id="chip-soon" onclick="setChip('soon')">This week</span>
-  <span class="chip chip-2wk" id="chip-2wk" onclick="setChip('2wk')">2 weeks</span>
-  <span class="chip chip-urgent" id="chip-urgent" onclick="setChip('urgent')">🟢 Now</span>
+  <span class="chip chip-2wk" id="chip-2wk" onclick="setChip('2wk')" title="14+ days away">Later</span>
+  <span class="chip chip-soon" id="chip-soon" onclick="setChip('soon')" title="4–14 days away">This week</span>
+  <span class="chip chip-urgent" id="chip-urgent" onclick="setChip('urgent')" title="Within 3 days">🟢 Now</span>
   <button class="tbtn" onclick="resetAll()">All</button>
 </div>
 <div id="body">
@@ -434,9 +439,10 @@ header h1{font-family:'Playfair Display',serif;font-size:1rem;color:var(--amber-
   </div>
   <div id="legend">
     <div class="leg-t">Timing</div>
-    <div class="leg-r"><div class="leg-d pin-soon" style="background:#22c55e"></div>≤3 days</div>
-    <div class="leg-r"><div class="leg-d" style="background:var(--upcoming)"></div>Upcoming</div>
-    <div class="leg-r"><div class="leg-d" style="background:var(--nodate)"></div>No date</div>
+    <div class="leg-r"><div class="leg-d pin-soon" style="background:#22c55e"></div>Now — within 3 days</div>
+    <div class="leg-r"><div class="leg-d" style="background:#f5e642"></div>This week — 4–14 days</div>
+    <div class="leg-r"><div class="leg-d" style="background:#c8912a"></div>Later — 14+ days</div>
+    <div class="leg-r"><div class="leg-d" style="background:#888888"></div>No date</div>
   </div>
 
   <!-- Route planner panel -->
@@ -648,8 +654,8 @@ function mc(h) {
   if (!s.length) return { color: '#888888', pulse: false };  // truly no date → grey
   const n = Math.min(...s.map(s => dft(s.date)));
   if (n <= 3)  return { color: '#22c55e', pulse: true };   // within 3 days → green pulsing
-  if (n <= 14) return { color: '#f5e642', pulse: false };  // 4-14 days → amber
-  return { color: '#f5e642', pulse: false };               // 14+ days but HAS a date → amber (not grey)
+  if (n <= 14) return { color: '#f5e642', pulse: false };  // 4-14 days → yellow
+  return { color: '#c8912a', pulse: false };               // 14+ days → amber/brown
 }
 
 function mkIcon(color, sz=12, pulse=false){
@@ -1351,6 +1357,12 @@ function setUpdateStatus(msg, col) {
   allH.forEach(addMarker);
   buildSB(allH);
 })();
+
+// ── HOVER LEGEND ──
+document.querySelectorAll('.chip').forEach(el => {
+  el.addEventListener('mouseenter', () => document.getElementById('legend').classList.add('visible'));
+  el.addEventListener('mouseleave', () => document.getElementById('legend').classList.remove('visible'));
+});
 </script>
 </body>
 </html>
