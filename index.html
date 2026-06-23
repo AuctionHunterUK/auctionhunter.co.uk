@@ -347,7 +347,7 @@ header h1{font-family:'Playfair Display',serif;font-size:1rem;color:var(--amber-
 <div id="toolbar">
   <span class="chip chip-2wk" id="chip-2wk" onclick="setChip('2wk')" title="14+ days away">Later</span>
   <span class="chip chip-soon" id="chip-soon" onclick="setChip('soon')" title="4–14 days away">This week</span>
-  <span class="chip chip-urgent" id="chip-urgent" onclick="setChip('urgent')" title="Within 3 days">🟢 Now</span>
+  <span class="chip chip-urgent" id="chip-urgent" onclick="setChip('urgent')" title="Within 3 days">Now</span>
   <button class="tbtn" onclick="resetAll()">All</button>
 </div>
 <div id="body">
@@ -743,9 +743,9 @@ function buildSB(houses){
   const cnt=document.getElementById('sheet-count');
   list.innerHTML='';
   let vis=houses;
-  if(activeChip==='soon')   vis=houses.filter(h=>h.sales.some(s=>dft(s.date)>=0&&dft(s.date)<=7));
-  else if(activeChip==='2wk')    vis=houses.filter(h=>h.sales.some(s=>dft(s.date)>=0&&dft(s.date)<=14));
-  else if(activeChip==='urgent') vis=houses.filter(h=>h.sales.some(s=>dft(s.date)>=0&&dft(s.date)<=3));
+  if(activeChip==='urgent') vis=houses.filter(h=>h.sales.some(s=>dft(s.date)>=0&&dft(s.date)<=3));
+  else if(activeChip==='soon')  vis=houses.filter(h=>h.sales.some(s=>dft(s.date)>=0&&dft(s.date)<=14));
+  else if(activeChip==='2wk')   vis=houses.filter(h=>h.sales.some(s=>dft(s.date)>=0));
   cnt.textContent=`${vis.length} houses · ${vis.filter(h=>h.sales.some(s=>dft(s.date)>=0)).length} with dates`;
   const visNames = new Set(vis.map(h => h.name));
   allH.forEach(h=>{
