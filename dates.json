@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-06-24T09:36:53.860789",
+  "scraped_at": "2026-06-24T12:29:21.044766",
   "houses": {
     "1888 Auctioneers": [],
     "A & C Auctions of Pendle": [
@@ -265,19 +265,25 @@
         "title": "Antiques, Works of Art, Furnishings & Collectables Sale"
       }
     ],
-    "Bank Hall Auctions": [],
+    "Bank Hall Auctions": [
+      {
+        "date": "2026-06-29",
+        "time": "9:30am",
+        "title": "Live Weekly Auction of Collectables, Vehicles, Antiques, Gold, Silver, Jewellery"
+      }
+    ],
     "Batemans of Stamford": [],
     "BBR Auctions": [],
     "Bearnes Hampton & Littlewood": [
       {
         "date": "2026-06-24",
-        "time": "10am",
-        "title": "Maritime Auction"
+        "time": "1pm",
+        "title": "Sporting & Collectors"
       },
       {
         "date": "2026-06-24",
-        "time": "1pm",
-        "title": "Sporting & Collectors"
+        "time": "10am",
+        "title": "Maritime Auction"
       },
       {
         "date": "2026-06-25",
@@ -486,11 +492,6 @@
         "title": "Interiors & General"
       },
       {
-        "date": "2026-07-16",
-        "time": "10am",
-        "title": "Fine Art & Antiques"
-      },
-      {
         "date": "2026-08-06",
         "time": "10am",
         "title": "Interiors & General"
@@ -499,6 +500,11 @@
         "date": "2026-09-03",
         "time": "10am",
         "title": "Interiors & General"
+      },
+      {
+        "date": "2026-09-17",
+        "time": "10am",
+        "title": "Fine Art & Antiques"
       },
       {
         "date": "2026-10-15",
@@ -519,6 +525,11 @@
         "date": "2026-06-24",
         "time": "10am",
         "title": "Three-Day General Auction (Jewellery, Watches, Designer Items, Militaria, Coins,"
+      },
+      {
+        "date": "2026-06-28",
+        "time": "12pm",
+        "title": "Sunday Afternoon Automatic Sales (Jewellery, Watches, Designer Items, Militaria,"
       }
     ],
     "Cambridgeshire Philatelic Auctions Ltd": [],
@@ -562,6 +573,11 @@
         "date": "2026-06-26",
         "time": "5pm",
         "title": "Collectors Auction"
+      },
+      {
+        "date": "2026-06-30",
+        "time": "5pm",
+        "title": "General Auction"
       }
     ],
     "Castleblair Auctioneers": [
@@ -904,7 +920,7 @@
       {
         "date": "2026-07-02",
         "time": "6pm",
-        "title": "Auction to include, Alcohol, Wines and Spirits, Antiques, Gold and Silver Jewell"
+        "title": "Auction to include, Diecast cars, model railway items, toys, Alcohol, Wines and "
       }
     ],
     "Duke's": [],
@@ -1062,6 +1078,16 @@
         "date": "2026-06-26",
         "time": "5pm",
         "title": "General Auction to include a Good Furniture, Collectables, Paintings, Jewellery "
+      },
+      {
+        "date": "2026-07-09",
+        "time": "5pm",
+        "title": "Machinery & Tool Auction to include Tools, Implements, Garden Items, Vehicles, T"
+      },
+      {
+        "date": "2026-07-10",
+        "time": "5pm",
+        "title": "Machinery & Tool Auction to include Tools, Implements, Garden Items, Vehicles, T"
       }
     ],
     "Fosse Lane Auction": [
@@ -1493,12 +1519,12 @@
     "JH Auctions LTD": [
       {
         "date": "2026-06-24",
-        "time": "10am",
+        "time": "4pm",
         "title": "All Day General Sale - Inc; Lots of 9ct Gold, Silver Jewellery, Star Wars Items,"
       },
       {
         "date": "2026-06-24",
-        "time": "4pm",
+        "time": "10am",
         "title": "All Day General Sale - Inc; Lots of 9ct Gold, Silver Jewellery, Star Wars Items,"
       }
     ],
@@ -1535,6 +1561,11 @@
         "date": "2026-06-24",
         "time": "9:30am",
         "title": "General Sale"
+      },
+      {
+        "date": "2026-07-08",
+        "time": "9:30am",
+        "title": "General Sale to include Many Interesting and Collectable Lots."
       }
     ],
     "John Nicholson's Fine Art Auctioneers & Valuers": [
@@ -1724,7 +1755,7 @@
       {
         "date": "2026-07-11",
         "time": "10am",
-        "title": "African Antiques & Art - The Estate of Suelle Nachif"
+        "title": "African Antiques & Art - The Estate of Suelle Nachif \r\n\r\nSuelle Nachif was a man"
       },
       {
         "date": "2026-08-01",
@@ -2125,6 +2156,11 @@
         "date": "2026-06-30",
         "time": "4pm",
         "title": "Militaria & Medals with Jewellery, Antiques & Furniture"
+      },
+      {
+        "date": "2026-07-28",
+        "time": "4pm",
+        "title": "Monthly Sale inc Jewellery, Silver & Furniture"
       }
     ],
     "Overture Auctions": [
@@ -2255,7 +2291,7 @@
       {
         "date": "2026-07-03",
         "time": "10am",
-        "title": "Cobridge Saleroom - Friday 3rd July 2026 - 20th Century Ceramics, Lorna Bailey ,"
+        "title": "Cobridge Saleroom - Friday 3rd July 2026 - 20th Century Ceramics, Lorna Bailey, "
       }
     ],
     "Potters Auction Saleroom Ltd": [
