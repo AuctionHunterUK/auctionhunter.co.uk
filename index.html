@@ -65,6 +65,7 @@ header h1{font-family:'Playfair Display',serif;font-size:1rem;color:var(--amber-
 .sdot-soon{background:#22c55e}.sdot-up{background:var(--upcoming)}.sdot-fut{background:var(--nodate)}
 .sdate{font-weight:600;color:var(--pine)}
 .no-sales{font-size:.65rem;color:#bbb;font-style:italic}
+.si-title{font-size:.62rem;color:var(--amber-lt);margin:2px 0 0 12px;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 
 /* ── DESKTOP SIDEBAR (≥768px) ── */
 @media(min-width:768px){
@@ -90,6 +91,7 @@ header h1{font-family:'Playfair Display',serif;font-size:1rem;color:var(--amber-
 .pu-sale.soon{border-color:#22c55e}.pu-sale.up{border-color:var(--upcoming)}.pu-sale.fut{border-color:var(--nodate)}
 .pu-sdate{font-size:.75rem;font-weight:600;color:var(--cream)}
 .pu-stime{font-size:.65rem;color:rgba(246,241,233,.5);margin-top:1px}
+.pu-ttitle{font-size:.7rem;color:var(--amber-lt);margin-top:2px;line-height:1.3}
 .pu-badge{display:inline-block;font-size:.58rem;padding:1px 5px;border-radius:8px;font-weight:600;margin-left:5px;vertical-align:middle}
 .badge-soon{background:rgba(34,197,94,.15);color:#22c55e}
 .badge-up{background:rgba(200,145,42,.15);color:var(--amber-lt)}
@@ -694,7 +696,7 @@ function buildPopup(h) {
   const sh=s.length?`<div class="pu-stitle">Upcoming Sales</div><div class="pu-sales">${s.map(x=>{
     const c=sc(x.date);
     const b=c==='soon'?'<span class="pu-badge badge-soon">Soon!</span>':c==='up'?'<span class="pu-badge badge-up">This month</span>':'<span class="pu-badge badge-fut">Scheduled</span>';
-    return `<div class="pu-sale ${c}"><div class="pu-sdate">${fd(x.date)}${b}</div>${x.time?`<div class="pu-stime">${x.time}</div>`:''}</div>`;
+    return `<div class="pu-sale ${c}"><div class="pu-sdate">${fd(x.date)}${b}</div>${x.title?`<div class="pu-ttitle">${x.title}</div>`:''}${x.time?`<div class="pu-stime">${x.time}</div>`:''}</div>`;
   }).join('')}</div>`:`<p class="pu-nosale">No upcoming dates found</p>`;
   return `<div class="pu"><div class="pu-name">${h.name}</div>${hSourceLabel(h)}<div class="pu-addr">${h.address}</div>${sh}<a class="pu-btn" href="${h.url}" target="_blank">${hSource(h)==="saleroom"?"View on The Saleroom ↗":"View on EasyLive ↗"}</a></div>`;
 }
@@ -759,7 +761,7 @@ function buildSB(houses){
   });
   vis.forEach(h=>{
     const fs=h.sales.filter(s=>dft(s.date)>=0).slice(0,3);
-    const sh=fs.length?fs.map(s=>{const c=sc(s.date);return`<div class="si-sale"><div class="sdot sdot-${c}"></div><span class="sdate">${fd(s.date)}</span>${s.time?`<span class="stitle">${s.time}</span>`:''}</div>`;}).join(''):`<div class="no-sales">No upcoming dates</div>`;
+    const sh=fs.length?fs.map(s=>{const c=sc(s.date);return`<div class="si-sale"><div class="sdot sdot-${c}"></div><span class="sdate">${fd(s.date)}</span>${s.time?`<span class="stitle">${s.time}</span>`:''}${s.title?`<div class="si-title">${s.title}</div>`:''}</div>`;}).join(''):`<div class="no-sales">No upcoming dates</div>`;
     const d=document.createElement('div');
     d.className='si'; d.dataset.name=h.name;
     d.innerHTML=`<div class="si-name">${h.name}</div><div class="si-addr">${h.address.replace(' United Kingdom','').substring(0,60)}</div><div class="si-sales">${sh}</div>`;
