@@ -104,6 +104,8 @@ header h1{font-family:'Playfair Display',serif;font-size:1rem;color:var(--amber-
 .leg-t{font-weight:600;margin-bottom:5px;color:var(--cream);letter-spacing:.05em;text-transform:uppercase;font-size:.58rem}
 .leg-r{display:flex;align-items:center;gap:6px;margin-bottom:3px}
 .leg-d{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.leg-r.highlight{font-weight:700;color:#fff}
+.leg-r.highlight .leg-d{width:12px;height:12px}
 
 /* ── PULSING PIN ── */
 @keyframes pin-pulse{
@@ -440,10 +442,10 @@ header h1{font-family:'Playfair Display',serif;font-size:1rem;color:var(--amber-
   </div>
   <div id="legend">
     <div class="leg-t">Timing</div>
-    <div class="leg-r"><div class="leg-d pin-soon" style="background:#22c55e"></div>Now — within 3 days</div>
-    <div class="leg-r"><div class="leg-d" style="background:#f5e642"></div>This week — 4–14 days</div>
-    <div class="leg-r"><div class="leg-d" style="background:#c8912a"></div>Later — 14+ days</div>
-    <div class="leg-r"><div class="leg-d" style="background:#888888"></div>No date</div>
+    <div class="leg-r leg-now"><div class="leg-d pin-soon" style="background:#22c55e"></div>Now — within 3 days</div>
+    <div class="leg-r leg-soon"><div class="leg-d" style="background:#f5e642"></div>This week — 4–14 days</div>
+    <div class="leg-r leg-later"><div class="leg-d" style="background:#c8912a"></div>Later — 14+ days</div>
+    <div class="leg-r leg-none"><div class="leg-d" style="background:#888888"></div>No date</div>
   </div>
 
   <!-- Route planner panel -->
@@ -1361,19 +1363,32 @@ function setUpdateStatus(msg, col) {
 
 // ── HOVER LEGEND ──
 let legendTimer = null;
+function highlightLegend(mode) {
+  document.querySelectorAll('.leg-r').forEach(r => r.classList.remove('highlight'));
+  if (mode === 'urgent') document.querySelector('.leg-now')?.classList.add('highlight');
+  else if (mode === 'soon') { document.querySelector('.leg-now')?.classList.add('highlight'); document.querySelector('.leg-soon')?.classList.add('highlight'); }
+  else if (mode === '2wk') { document.querySelector('.leg-now')?.classList.add('highlight'); document.querySelector('.leg-soon')?.classList.add('highlight'); document.querySelector('.leg-later')?.classList.add('highlight'); }
+  else { document.querySelectorAll('.leg-r').forEach(r => r.classList.add('highlight')); }
+}
 document.querySelectorAll('.chip').forEach(el => {
   el.addEventListener('mouseenter', () => {
     clearTimeout(legendTimer);
+    const mode = el.id.replace('chip-', '');
+    highlightLegend(mode);
     document.getElementById('legend').classList.add('visible');
   });
   el.addEventListener('mouseleave', () => {
     document.getElementById('legend').classList.remove('visible');
+    document.querySelectorAll('.leg-r').forEach(r => r.classList.remove('highlight'));
   });
   el.addEventListener('click', () => {
     clearTimeout(legendTimer);
+    const mode = el.id.replace('chip-', '');
+    highlightLegend(mode);
     document.getElementById('legend').classList.add('visible');
     legendTimer = setTimeout(() => {
       document.getElementById('legend').classList.remove('visible');
+      document.querySelectorAll('.leg-r').forEach(r => r.classList.remove('highlight'));
     }, 3000);
   });
 });
