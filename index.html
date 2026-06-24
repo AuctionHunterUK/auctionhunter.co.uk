@@ -1360,9 +1360,22 @@ function setUpdateStatus(msg, col) {
 })();
 
 // ── HOVER LEGEND ──
+let legendTimer = null;
 document.querySelectorAll('.chip').forEach(el => {
-  el.addEventListener('mouseenter', () => document.getElementById('legend').classList.add('visible'));
-  el.addEventListener('mouseleave', () => document.getElementById('legend').classList.remove('visible'));
+  el.addEventListener('mouseenter', () => {
+    clearTimeout(legendTimer);
+    document.getElementById('legend').classList.add('visible');
+  });
+  el.addEventListener('mouseleave', () => {
+    document.getElementById('legend').classList.remove('visible');
+  });
+  el.addEventListener('click', () => {
+    clearTimeout(legendTimer);
+    document.getElementById('legend').classList.add('visible');
+    legendTimer = setTimeout(() => {
+      document.getElementById('legend').classList.remove('visible');
+    }, 3000);
+  });
 });
 </script>
 </body>
