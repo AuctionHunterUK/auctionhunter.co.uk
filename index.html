@@ -46,6 +46,9 @@ header h1{font-family:'Playfair Display',serif;font-size:1rem;color:#111827;whit
 #sheet-handle{padding:10px 0 8px;display:flex;flex-direction:column;align-items:center;gap:0;cursor:pointer;flex-shrink:0;-webkit-tap-highlight-color:transparent}
 #sheet-handle-bar{width:36px;height:4px;background:rgba(58,92,59,.25);border-radius:2px;margin-bottom:6px}
 #sheet-handle-row{display:flex;align-items:center;justify-content:space-between;width:100%;padding:0 14px 4px}
+#sheet-close{background:none;border:none;color:#9ca3af;font-size:1rem;cursor:pointer;padding:4px 6px;line-height:1;border-radius:4px;transition:color .12s}
+#sheet-close:hover{color:#4b5563}
+#sheet-close:active{color:#111827}
 #sheet-title{font-family:'Playfair Display',serif;font-size:.85rem;color:var(--pine-dark);font-weight:700}
 #sheet-count{font-size:.65rem;color:var(--muted)}
 #sheet-search-row{padding:0 12px 8px;flex-shrink:0;border-bottom:1px solid rgba(200,191,175,.4)}
@@ -107,7 +110,7 @@ header h1{font-family:'Playfair Display',serif;font-size:1rem;color:#111827;whit
 .leg-t{font-weight:600;margin-bottom:6px;color:#111827;letter-spacing:.05em;text-transform:uppercase;font-size:.6rem}
 .leg-r{display:flex;align-items:center;gap:6px;margin-bottom:4px;font-size:.68rem}
 .leg-d{width:10px;height:10px;border-radius:50%;flex-shrink:0}
-.leg-r.highlight{font-weight:700;color:#fff}
+.leg-r.highlight{font-weight:700;color:#111827}
 .leg-r.highlight .leg-d{width:12px;height:12px}
 
 /* ── PULSING PIN ── */
@@ -367,7 +370,8 @@ header h1{font-family:'Playfair Display',serif;font-size:1rem;color:#111827;whit
       <div id="sheet-handle-bar"></div>
       <div id="sheet-handle-row">
         <span id="sheet-title">Auction Houses</span>
-        <span id="sheet-count">Loading…</span>
+        <span id="sheet-count">490 houses · 225 with dates</span>
+        <button id="sheet-close" onclick="closeSheet();event.stopPropagation()" aria-label="Close">✕</button>
       </div>
     </div>
     <div id="sheet-search-row">
@@ -636,6 +640,22 @@ function toggleSheet() {
 function closeSheet() {
   document.getElementById('sheet').classList.remove('open');
 }
+// Prevent touch events inside the mobile sheet from panning the map underneath
+document.addEventListener('DOMContentLoaded', function(){
+  const sheet = document.getElementById('sheet');
+  if (sheet) {
+    sheet.addEventListener('touchstart', function(e){ e.stopPropagation(); }, {passive:true});
+    sheet.addEventListener('touchmove',  function(e){ e.stopPropagation(); }, {passive:true});
+    sheet.addEventListener('touchend',   function(e){ e.stopPropagation(); }, {passive:true});
+    // Also prevent scroll on the sheet list from affecting the map
+    const list = document.getElementById('sblist');
+    if (list) {
+      list.addEventListener('touchstart', function(e){ e.stopPropagation(); }, {passive:true});
+      list.addEventListener('touchmove',  function(e){ e.stopPropagation(); }, {passive:true});
+      list.addEventListener('touchend',   function(e){ e.stopPropagation(); }, {passive:true});
+    }
+  }
+});
 
 // ── SETUP ────────────────────────────────────────────────────────────────────
 const map = L.map('map',{center:[54.2,-2.5],zoom:6});
