@@ -676,12 +676,40 @@ const ALL_HOUSES = [{"name":"1888 Auctioneers","address":"Office 50 511 Garretts
 
 
 // ── SHEET TOGGLE (mobile) ────────────────────────────────────────────────────
+function isMobileView(){ return window.innerWidth < 768; }
+function openSheet() {
+  document.getElementById('sheet').classList.add('open');
+  if (isMobileView()) freezeMap();
+}
 function toggleSheet() {
   const s = document.getElementById('sheet');
-  s.classList.toggle('open');
+  if (s.classList.contains('open')) closeSheet();
+  else openSheet();
 }
 function closeSheet() {
   document.getElementById('sheet').classList.remove('open');
+  if (isMobileView()) unfreezeMap();
+}
+// Stop the map panning/zooming underneath the sheet on mobile
+function freezeMap(){
+  try {
+    map.dragging.disable();
+    map.touchZoom.disable();
+    map.doubleClickZoom.disable();
+    map.scrollWheelZoom.disable();
+    if (map.tap) map.tap.disable();
+  } catch(e){}
+}
+function unfreezeMap(){
+  try {
+    map.dragging.enable();
+    map.touchZoom.enable();
+    map.doubleClickZoom.enable();
+    map.scrollWheelZoom.enable();
+    if (map.tap) map.tap.enable();
+    // Re-sync tiles in case the container shifted while frozen
+    setTimeout(() => map.invalidateSize({pan:false}), 60);
+  } catch(e){}
 }
 // Prevent touch events inside the mobile sheet from panning the map underneath
 document.addEventListener('DOMContentLoaded', function(){
