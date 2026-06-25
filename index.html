@@ -947,6 +947,8 @@ function resetAll(){
   document.getElementById('chip-2wk').classList.remove('on');
   document.getElementById('chip-urgent').classList.remove('on');
   buildSB(filteredH());
+  // On mobile: flash the timing legend briefly, then auto-hide so it doesn't block the map
+  if (window.innerWidth < 768) flashLegend('all');
 }
 
 document.getElementById('sbsearch').addEventListener('input',()=>buildSB(filteredH()));
