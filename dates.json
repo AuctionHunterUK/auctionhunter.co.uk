@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-06-25T01:36:35.199327",
+  "scraped_at": "2026-06-25T12:24:41.855777",
   "houses": {
     "1888 Auctioneers": [],
     "A & C Auctions of Pendle": [
@@ -39,7 +39,13 @@
         "title": "Antique & Collectors Auction"
       }
     ],
-    "Abbey Auction Rooms Ltd": [],
+    "Abbey Auction Rooms Ltd": [
+      {
+        "date": "2026-06-27",
+        "time": "10am",
+        "title": "Antiques and General Auction Including Ludwig 1960s/70's Drum Kits, Silver, Book"
+      }
+    ],
     "ABC Auction": [],
     "Acanthus Auctions Ltd": [
       {
@@ -102,9 +108,9 @@
         "title": "Tuesday 7th July:  Longines, Bulova, Gucci, Seiko, Montblanc, Parker, Conway Ste"
       },
       {
-        "date": "2026-07-09",
+        "date": "2026-07-14",
         "time": "10:30am",
-        "title": "Thursday 9th July: Gold, Silver, Diamonds, Emeralds, Medals, Watches, Pens, Desi"
+        "title": "Tuesday 14th July: Gold, Silver, Diamonds, Emeralds, Medals, Watches, Pens, Desi"
       }
     ],
     "Altona Auctions - L S Henry Limited": [],
@@ -210,7 +216,7 @@
       {
         "date": "2026-06-27",
         "time": "10am",
-        "title": "No Reserve Reseller & General Auction | Mixed Lots, Household, Clearance & New E"
+        "title": "NO RESERVE - Reseller & General Auction | Mixed Lots, Household, Clearance & New"
       },
       {
         "date": "2026-06-28",
@@ -520,7 +526,18 @@
       }
     ],
     "Bushey Auctions": [],
-    "C&T Auctioneers and Valuers Ltd": [],
+    "C&T Auctioneers and Valuers Ltd": [
+      {
+        "date": "2026-07-08",
+        "time": "10am",
+        "title": "Fine Arms, Armour & Militaria"
+      },
+      {
+        "date": "2026-07-09",
+        "time": "10am",
+        "title": "Fine Arms, Armour & Militaria"
+      }
+    ],
     "Cadmore Auctions": [
       {
         "date": "2026-06-28",
@@ -695,6 +712,16 @@
         "date": "2026-06-26",
         "time": "10am",
         "title": "General Timed Sale (Finishes Friday)"
+      },
+      {
+        "date": "2026-06-29",
+        "time": "10am",
+        "title": "Sale of Jewellery, Antiques, Collectables, Furniture and Electricals"
+      },
+      {
+        "date": "2026-07-03",
+        "time": "8pm",
+        "title": "Timed Wool, Crafting and Haberdashery Sale"
       }
     ],
     "Churchill Auctions Ltd": [
@@ -788,7 +815,13 @@
         "title": "Sale of Jewellery, Watches, Militaria, Silver, China, Furniture, Toys & Collecta"
       }
     ],
-    "Crow's Auction Gallery Ltd": [],
+    "Crow's Auction Gallery Ltd": [
+      {
+        "date": "2026-07-08",
+        "time": "10am",
+        "title": "Antiques & Collectables"
+      }
+    ],
     "Cruso & Wilkin": [],
     "Cullens of Surrey": [
       {
@@ -923,7 +956,7 @@
       {
         "date": "2026-07-09",
         "time": "6pm",
-        "title": "Auction to include, Antiques, Gold and Silver Jewellery, Marvel & DC comics, Art"
+        "title": "Auction to include, Antiques, Gold and Silver Jewellery, Marvel & DC Comics, Art"
       }
     ],
     "Duke's": [],
@@ -1035,7 +1068,13 @@
     ],
     "Essex and Suffolk Auctions": [],
     "Essex Coin Auctions": [],
-    "Etrusca Auctions": [],
+    "Etrusca Auctions": [
+      {
+        "date": "2026-07-02",
+        "time": "4pm",
+        "title": "Estate and Fine Jewellery Sale"
+      }
+    ],
     "F Turner & Sons": [],
     "Fieldings Auctioneers Ltd": [
       {
@@ -1774,9 +1813,9 @@
     ],
     "Locke's Auctioneers": [
       {
-        "date": "2026-06-25",
+        "date": "2026-07-02",
         "time": "6pm",
-        "title": "The Antique & Mid Century Interiors Sale. To include a Range of Collectables, Si"
+        "title": "Sale Postponed Until 2nd July. The Antique & Mid Century Interiors Sale. To incl"
       }
     ],
     "Lodge & Thomas": [],
@@ -2015,7 +2054,13 @@
         "title": "New Items Added Daily, including Gold, Tech, TCG and More!!!!"
       }
     ],
-    "Morgan Evans & Co": [],
+    "Morgan Evans & Co": [
+      {
+        "date": "2026-07-02",
+        "time": "10am",
+        "title": "Antique, Vintage & General Auction"
+      }
+    ],
     "Morley Auctioneers & Valuers": [
       {
         "date": "2026-06-26",
@@ -2653,7 +2698,13 @@
         "title": "Jewellery, Silver, Ceramics, Militaria, Coins, Antiques & Collectables"
       }
     ],
-    "Stephen Fitzpatrick & Co": [],
+    "Stephen Fitzpatrick & Co": [
+      {
+        "date": "2026-06-27",
+        "time": "11am",
+        "title": "Antiques & Household Furnishings Auction"
+      }
+    ],
     "Sterling Vault Auctioneers": [
       {
         "date": "2026-06-25",
@@ -2888,7 +2939,7 @@
       {
         "date": "2026-07-04",
         "time": "10am",
-        "title": "Antique & Collectors Sale."
+        "title": "Antique & Collectors Sale.\nOver 700 Lots Going Under the Hammer!"
       }
     ],
     "Tong's Auction House": [
