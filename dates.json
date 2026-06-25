@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-06-25T12:24:41.855777",
+  "scraped_at": "2026-06-25T12:56:08.568712",
   "houses": {
     "1888 Auctioneers": [],
     "A & C Auctions of Pendle": [
@@ -156,6 +156,11 @@
     "Argents Auctioneers Ltd": [],
     "Argyll Etkin Limited": [],
     "Arthur Johnson & Sons": [
+      {
+        "date": "2026-06-27",
+        "time": "9:30am",
+        "title": "The Saturday Auctions 27th June 2026"
+      },
       {
         "date": "2026-06-27",
         "time": "9:30am",
