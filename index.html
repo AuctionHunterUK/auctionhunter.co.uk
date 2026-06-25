@@ -936,6 +936,8 @@ function setChip(mode){
   document.getElementById('chip-2wk').classList.toggle('on', activeChip==='2wk');
   document.getElementById('chip-urgent').classList.toggle('on', activeChip==='urgent');
   buildSB(filteredH());
+  // On mobile: flash the timing legend briefly, then auto-hide so it doesn't block the map
+  if (window.innerWidth < 768) flashLegend(activeChip);
 }
 
 function resetAll(){
@@ -1495,6 +1497,13 @@ function highlightLegend(mode) {
 const legendEl = document.getElementById('legend');
 function showLegend(mode){ clearTimeout(legendTimer); highlightLegend(mode); legendEl.classList.add('visible'); }
 function hideLegend(){ legendEl.classList.remove('visible'); document.querySelectorAll('.leg-r').forEach(r => r.classList.remove('highlight')); }
+// Mobile: show the legend for a few seconds then auto-hide so it doesn't block the map
+function flashLegend(mode){
+  // 'all' filter highlights everything; map activeChip back to legend modes
+  showLegend(mode === 'all' ? 'all' : mode);
+  clearTimeout(legendTimer);
+  legendTimer = setTimeout(hideLegend, 2500);
+}
 // Wire the timing chips (Later / This week / Now) + the "All" button
 document.querySelectorAll('.chip, .tbtn').forEach(el => {
   const mode = el.id ? el.id.replace('chip-', '') : 'all';
