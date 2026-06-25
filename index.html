@@ -47,6 +47,15 @@ header h1{font-family:'Playfair Display',serif;font-size:1rem;color:#111827;whit
 #sheet-handle-bar{width:36px;height:4px;background:rgba(58,92,59,.25);border-radius:2px;margin-bottom:6px}
 #sheet-handle-row{display:flex;align-items:center;justify-content:space-between;width:100%;padding:0 14px 4px}
 #sheet-close{background:none;border:none;color:#9ca3af;font-size:1.3rem;cursor:pointer;padding:6px 10px;line-height:1;border-radius:6px;transition:color .12s;-webkit-tap-highlight-color:transparent}
+#sheet-hint{font-size:.66rem;color:#3a5c3b;text-align:center;font-weight:600;padding:2px 0 0;letter-spacing:.02em}
+#sheet-close-bar{display:none}
+@media(max-width:767px){
+  #sheet-close-bar{display:block;flex-shrink:0;width:100%;border:none;cursor:pointer;
+    background:#3a5c3b;color:#fff;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:700;
+    padding:15px 0;letter-spacing:.03em;-webkit-tap-highlight-color:transparent;
+    box-shadow:0 -2px 10px rgba(0,0,0,.12)}
+  #sheet-close-bar:active{background:#2d4a3e}
+}
 #sheet-close:hover{color:#4b5563}
 #sheet-close:active{color:#111827}
 #sheet-title{font-family:'Playfair Display',serif;font-size:.85rem;color:#111827;font-weight:700}
@@ -416,11 +425,13 @@ header h1{font-family:'Playfair Display',serif;font-size:1rem;color:#111827;whit
         <span id="sheet-count">490 houses · 225 with dates</span>
         <button id="sheet-close" onclick="closeSheet();event.stopPropagation()" aria-label="Close">✕</button>
       </div>
+      <div id="sheet-hint">Tap to open ▲</div>
     </div>
     <div id="sheet-search-row">
       <input id="sbsearch" type="search" placeholder="Filter list…" autocomplete="off">
     </div>
     <div id="sblist"></div>
+    <button id="sheet-close-bar" onclick="closeSheet()">▼  Close list</button>
   </div>
 
   <!-- Update Dates Panel -->
@@ -679,6 +690,7 @@ const ALL_HOUSES = [{"name":"1888 Auctioneers","address":"Office 50 511 Garretts
 function isMobileView(){ return window.innerWidth < 768; }
 function openSheet() {
   document.getElementById('sheet').classList.add('open');
+  const hint = document.getElementById('sheet-hint'); if(hint) hint.textContent = 'Tap to close ▼';
   if (isMobileView()) freezeMap();
 }
 function toggleSheet() {
@@ -688,6 +700,7 @@ function toggleSheet() {
 }
 function closeSheet() {
   document.getElementById('sheet').classList.remove('open');
+  const hint = document.getElementById('sheet-hint'); if(hint) hint.textContent = 'Tap to open ▲';
   if (isMobileView()) unfreezeMap();
 }
 // Stop the map panning/zooming underneath the sheet on mobile
