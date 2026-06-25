@@ -754,7 +754,7 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 
 // ── SETUP ────────────────────────────────────────────────────────────────────
-const map = L.map('map',{center:[54.2,-2.5],zoom:6});
+const map = L.map('map',{center:[54.4,-3.2],zoom:window.innerWidth < 768 ? 5 : 6});
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png',{attribution:'&copy; OSM &copy; CARTO',subdomains:'abcd',maxZoom:19}).addTo(map);
 
 const today = new Date(); today.setHours(0,0,0,0);
@@ -957,8 +957,8 @@ function goHome(){
   document.getElementById('sbsearch').value='';
   if (typeof closeSheet === 'function') closeSheet();
   map.closePopup();
-  // Re-centre on the UK
-  map.setView([54.2,-2.5], 6, {animate:true});
+  // Re-centre on the UK — zoom out a touch on mobile so the whole country fits the narrow screen
+  map.setView([54.4,-3.2], window.innerWidth < 768 ? 5 : 6, {animate:true});
   // Reset to the "Now" default
   activeChip = 'urgent';
   document.getElementById('chip-soon').classList.remove('on');
