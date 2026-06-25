@@ -395,7 +395,7 @@ header h1{font-family:'Playfair Display',serif;font-size:1rem;color:#111827;whit
 </head>
 <body>
 <header>
-  <div style="display:flex;align-items:center;gap:10px">
+  <div onclick="goHome()" title="Back to start — reset to today's auctions" style="display:flex;align-items:center;gap:10px;cursor:pointer">
     <img src="logo.png" alt="Auction Hunter" style="height:40px;width:auto">
     <h1 style="font-family:'Playfair Display',serif;font-size:1.1rem;color:#111827;white-space:nowrap;margin:0">Auction Hunter</h1>
   </div>
@@ -951,6 +951,22 @@ function resetAll(){
   if (window.innerWidth < 768) flashLegend('all');
 }
 
+// Click the "Auction Hunter" title to reset everything to the default view:
+// "Now" filter, map re-centred on the UK, sheet closed, any open popup dismissed.
+function goHome(){
+  document.getElementById('sbsearch').value='';
+  if (typeof closeSheet === 'function') closeSheet();
+  map.closePopup();
+  // Re-centre on the UK
+  map.setView([54.2,-2.5], 6, {animate:true});
+  // Reset to the "Now" default
+  activeChip = 'urgent';
+  document.getElementById('chip-soon').classList.remove('on');
+  document.getElementById('chip-2wk').classList.remove('on');
+  document.getElementById('chip-urgent').classList.add('on');
+  buildSB(filteredH());
+}
+
 document.getElementById('sbsearch').addEventListener('input',()=>buildSB(filteredH()));
 
 // On mobile: close sheet when tapping the map background (not a pin)
@@ -1484,7 +1500,10 @@ function setUpdateStatus(msg, col) {
   document.getElementById('hright').textContent=`${mapped} mapped · ${withDates} with dates`;
   
   allH.forEach(addMarker);
-  buildSB(allH);
+  // Default view: show the "Now" auctions (within 3 days) so the app is useful immediately
+  activeChip = 'urgent';
+  document.getElementById('chip-urgent').classList.add('on');
+  buildSB(filteredH());
 })();
 
 // ── HOVER LEGEND ──
