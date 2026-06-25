@@ -100,6 +100,14 @@ header h1{font-family:'Playfair Display',serif;font-size:1rem;color:#111827;whit
 .pu-addr{font-size:.68rem;color:#6b7280;margin-bottom:11px;line-height:1.5}
 .pu-stitle{font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(246,241,233,.3);margin-bottom:5px}
 .pu-sales{display:flex;flex-direction:column;gap:4px;margin-bottom:11px}
+@media(max-width:767px){
+  /* Keep tall popups (lots of sale dates) usable — scroll within the popup instead of overflowing the screen */
+  .leaflet-popup-content-wrapper{max-height:60vh;overflow:hidden}
+  .leaflet-popup-content{max-height:60vh;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  .pu-sales{max-height:34vh;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-right:2px}
+  .pu-sales::-webkit-scrollbar{width:3px}
+  .pu-sales::-webkit-scrollbar-thumb{background:rgba(58,92,59,.3);border-radius:2px}
+}
 .pu-sale{background:rgba(0,0,0,.03);border-left:3px solid;border-radius:3px;padding:5px 8px}
 .pu-sale.soon{border-color:#22c55e}.pu-sale.up{border-color:var(--upcoming)}.pu-sale.fut{border-color:var(--nodate)}
 .pu-sdate{font-size:.75rem;font-weight:600;color:#111827}
@@ -812,7 +820,7 @@ function hSourceLabel(h) {
 }
 
 function buildPopup(h) {
-  const s=h.sales.filter(s=>dft(s.date)>=0).slice(0,4);
+  const s=h.sales.filter(s=>dft(s.date)>=0).slice(0,8);
   const sh=s.length?`<div class="pu-stitle">Upcoming Sales</div><div class="pu-sales">${s.map(x=>{
     const c=sc(x.date);
     const b=c==='soon'?'<span class="pu-badge badge-soon">Soon!</span>':c==='up'?'<span class="pu-badge badge-up">This month</span>':'<span class="pu-badge badge-fut">Scheduled</span>';
