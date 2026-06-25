@@ -46,7 +46,7 @@ header h1{font-family:'Playfair Display',serif;font-size:1rem;color:#111827;whit
 #sheet-handle{padding:10px 0 8px;display:flex;flex-direction:column;align-items:center;gap:0;cursor:pointer;flex-shrink:0;-webkit-tap-highlight-color:transparent}
 #sheet-handle-bar{width:36px;height:4px;background:rgba(58,92,59,.25);border-radius:2px;margin-bottom:6px}
 #sheet-handle-row{display:flex;align-items:center;justify-content:space-between;width:100%;padding:0 14px 4px}
-#sheet-close{background:none;border:none;color:#9ca3af;font-size:1rem;cursor:pointer;padding:4px 6px;line-height:1;border-radius:4px;transition:color .12s}
+#sheet-close{background:none;border:none;color:#9ca3af;font-size:1.3rem;cursor:pointer;padding:6px 10px;line-height:1;border-radius:6px;transition:color .12s;-webkit-tap-highlight-color:transparent}
 #sheet-close:hover{color:#4b5563}
 #sheet-close:active{color:#111827}
 #sheet-title{font-family:'Playfair Display',serif;font-size:.85rem;color:#111827;font-weight:700}
@@ -697,6 +697,18 @@ document.addEventListener('DOMContentLoaded', function(){
       list.addEventListener('touchmove',  function(e){ e.stopPropagation(); }, {passive:true});
       list.addEventListener('touchend',   function(e){ e.stopPropagation(); }, {passive:true});
     }
+    // Swipe-down-to-close on the handle area (easier than tapping on mobile)
+    const handle = document.getElementById('sheet-handle');
+    if (handle) {
+      let startY = null;
+      handle.addEventListener('touchstart', function(e){ startY = e.touches[0].clientY; }, {passive:true});
+      handle.addEventListener('touchmove', function(e){
+        if (startY === null) return;
+        const dy = e.touches[0].clientY - startY;
+        if (dy > 40) { closeSheet(); startY = null; }   // dragged down → close
+      }, {passive:true});
+      handle.addEventListener('touchend', function(){ startY = null; }, {passive:true});
+    }
   }
 });
 
@@ -708,8 +720,9 @@ const today = new Date(); today.setHours(0,0,0,0);
 const todayStr = today.toISOString().slice(0,10);
 
 // Merge location + dates
-let allH = ALL_HOUSES.map(h => ({
+let allH = ALL_HOUSES.map((h, i) => ({
   ...h,
+  _id: i,
   sales: cleanSales(RAW_DATES[h.name] || [])
 }));
 
@@ -790,16 +803,16 @@ function addMarker(h){
     className: 'auction-tooltip'
   });
   m.on('click',()=>{
-    hlSB(h.name);
+    hlSB(h._id);
     if(window.innerWidth < 768) closeSheet();
   });
   m.addTo(map);
-  markers[h.name]=m;
+  markers[h._id]=m;
 }
 
 function refreshMarkers(){
   allH.forEach(h=>{
-    const m=markers[h.name];
+    const m=markers[h._id];
     if(!m) return;
     const {color, pulse} = mc(h);
     m.setIcon(mkIcon(color, 12, pulse));
@@ -818,21 +831,21 @@ function buildSB(houses){
   else if(activeChip==='soon')  vis=houses.filter(h=>h.sales.some(s=>dft(s.date)>=0&&dft(s.date)<=14));
   else if(activeChip==='2wk')   vis=houses.filter(h=>h.sales.some(s=>dft(s.date)>=0));
   cnt.textContent=`${vis.length} houses · ${vis.filter(h=>h.sales.some(s=>dft(s.date)>=0)).length} with dates`;
-  const visNames = new Set(vis.map(h => h.name));
+  const visIds = new Set(vis.map(h => h._id));
   allH.forEach(h=>{
-    const m=markers[h.name];
+    const m=markers[h._id];
     if(!m) return;
     if(auctionsHidden) return;
-    visNames.has(h.name) ? m.addTo(map) : m.remove();
+    visIds.has(h._id) ? m.addTo(map) : m.remove();
   });
   vis.forEach(h=>{
     const fs=h.sales.filter(s=>dft(s.date)>=0).slice(0,3);
     const sh=fs.length?fs.map(s=>{const c=sc(s.date);return`<div class="si-sale"><div class="sdot sdot-${c}"></div><span class="sdate">${fd(s.date)}</span>${s.time?`<span class="stitle">${s.time}</span>`:''}${s.title?`<div class="si-title">${s.title}</div>`:''}</div>`;}).join(''):`<div class="no-sales">No upcoming dates</div>`;
     const d=document.createElement('div');
-    d.className='si'; d.dataset.name=h.name;
+    d.className='si'; d.dataset.name=h.name; d.dataset.id=h._id;
     d.innerHTML=`<div class="si-name">${h.name}</div><div class="si-addr">${h.address.replace(' United Kingdom','').substring(0,60)}</div><div class="si-sales">${sh}</div>`;
     d.addEventListener('click',()=>{
-      const m=markers[h.name];
+      const m=markers[h._id];
       if(m){
         if(window.innerWidth < 768){
           // On mobile: close sheet first, then fly to pin and open popup
@@ -844,7 +857,7 @@ function buildSB(houses){
         } else {
           map.setView(m.getLatLng(), 13, {animate:true});
           m.openPopup();
-          hlSB(h.name);
+          hlSB(h._id);
         }
       }
     });
@@ -852,9 +865,9 @@ function buildSB(houses){
   });
 }
 
-function hlSB(name){
+function hlSB(id){
   document.querySelectorAll('.si').forEach(e=>e.classList.remove('on'));
-  const el=document.querySelector(`.si[data-name="${CSS.escape(name)}"]`);
+  const el=document.querySelector(`.si[data-id="${id}"]`);
   if(el){
     el.classList.add('on');
     // Only scroll into view on desktop — on mobile the sheet closes anyway
@@ -1050,7 +1063,7 @@ function renderRouteResults() {
         ${dateStr}
       </div>`;
     el.addEventListener('click', () => {
-      const m = markers[h.name];
+      const m = markers[h._id];
       if (m) { map.setView(m.getLatLng(), 14, {animate:true}); m.openPopup(); }
       if (window.innerWidth < 768) toggleRoutePanel();
     });
@@ -1327,7 +1340,7 @@ function applyNewDates(newDates) {
       h.sales = cleanSales(sales);
       updated++;
       // Refresh marker colour
-      const m = markers[h.name];
+      const m = markers[h._id];
       if (m) {
         const {color, pulse} = mc(h);
         m.setIcon(mkIcon(color, 12, pulse));
