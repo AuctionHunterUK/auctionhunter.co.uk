@@ -1466,7 +1466,7 @@ function setUpdateStatus(msg, col) {
       const dayName = scrapedDate.toLocaleDateString('en-GB', {weekday:'long'});
       const timeStr = scrapedDate.toLocaleTimeString('en-GB', {hour:'numeric', minute:'2-digit', hour12:true});
       
-      document.getElementById('update-status').textContent = `✅ Successfully updated - ${dateStr}, ${timeStr}`;
+      document.getElementById('update-status').textContent = `✅ Successfully updated - ${dayName}, ${dateStr}, ${timeStr}`;
       document.getElementById('updated-badge').textContent = dateStr;
       document.getElementById('up-last-updated').textContent = `Last updated: ${dateStr}`;
       
