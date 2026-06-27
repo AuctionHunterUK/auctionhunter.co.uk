@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-06-27T01:36:00.850737",
+  "scraped_at": "2026-06-27T10:15:08.807476",
   "houses": {
     "1888 Auctioneers": [],
     "A & C Auctions of Pendle": [
@@ -1532,7 +1532,18 @@
         "title": "Fine Art & Antique Sale"
       }
     ],
-    "JH Auctions LTD": [],
+    "JH Auctions LTD": [
+      {
+        "date": "2026-07-01",
+        "time": "10am",
+        "title": "All Day General Sale - Inc; 9ct Gold, Hornby Locomotives, Star Wars Items, Pocke"
+      },
+      {
+        "date": "2026-07-01",
+        "time": "4pm",
+        "title": "All Day General Sale - Inc; 9ct Gold, Hornby Locomotives, Star Wars Items, Pocke"
+      }
+    ],
     "John Cowell Auctions": [],
     "John Goodwin": [
       {
@@ -1675,7 +1686,7 @@
       {
         "date": "2026-06-30",
         "time": "11:59pm",
-        "title": "Includes Dining Tables, Lounge Suites, unframed Oil Paintings by Keith Gardner R"
+        "title": "Includes Stamps (25+ lots) , unframed Oil Paintings by Keith Gardner RCA, I Shir"
       }
     ],
     "KLM Whyte Auctioneers": [
@@ -2893,7 +2904,7 @@
     ],
     "Tong's Auction House": [
       {
-        "date": "2026-07-02",
+        "date": "2026-07-03",
         "time": "10:30am",
         "title": "A Superb Estate Sale includes Wonderful Antiques, Furniture, Interiors, Jeweller"
       }
