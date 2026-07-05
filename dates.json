@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-05T01:35:30.225768",
+  "scraped_at": "2026-07-05T10:53:58.902464",
   "houses": {
     "1888 Auctioneers": [],
     "A & C Auctions of Pendle": [
@@ -2420,7 +2420,13 @@
         "title": "Live Auction of Antiques, Collectables etc"
       }
     ],
-    "Regent Auctions": [],
+    "Regent Auctions": [
+      {
+        "date": "2026-07-16",
+        "time": "7pm",
+        "title": "Vintage Tea Sets"
+      }
+    ],
     "Rendells LLP": [],
     "RG & RB Williams Auctioneers": [],
     "Richard Winterton Auctioneers": [
@@ -3257,8 +3263,8 @@
     "Yeovil Auctions": [
       {
         "date": "2026-07-12",
-        "time": "10am",
-        "title": "Timed And Online Only Auction."
+        "time": "6pm",
+        "title": "Timed and Online Auction. Please Note No Chip & Pin for this Sale. Bank Transfer"
       },
       {
         "date": "2026-07-23",
