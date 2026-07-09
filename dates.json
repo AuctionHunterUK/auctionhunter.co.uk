@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-09T01:36:35.786742",
+  "scraped_at": "2026-07-09T12:44:49.343673",
   "houses": {
     "1888 Auctioneers": [],
     "A & C Auctions of Pendle": [
@@ -28,7 +28,13 @@
         "title": "Antique & Collectors Auction"
       }
     ],
-    "Abbey Auction Rooms Ltd": [],
+    "Abbey Auction Rooms Ltd": [
+      {
+        "date": "2026-07-11",
+        "time": "10am",
+        "title": "Antiques and General Auction including Sewing Machines, Silver, Books, Furniture"
+      }
+    ],
     "ABC Auction": [],
     "Acanthus Auctions Ltd": [
       {
@@ -90,6 +96,11 @@
         "date": "2026-07-21",
         "time": "10:30am",
         "title": "Tuesday 21st July: Gold, Silver, Diamonds, Omega, Tiffany, Bulova, Cartier, Loui"
+      },
+      {
+        "date": "2026-07-28",
+        "time": "10:30am",
+        "title": "Tuesday 28th July: Gold, Silver, Diamonds, Emeralds, Medals, Tobacciana, Watches"
       }
     ],
     "Altona Auctions - L S Henry Limited": [],
@@ -448,7 +459,7 @@
       {
         "date": "2026-07-23",
         "time": "10am",
-        "title": "Fine Antiques - Featuring The Barbara Cavanagh Collection"
+        "title": "Fine Antiques - Featuring the Barbara Cavanagh Collection of Theatrical Ephemera"
       },
       {
         "date": "2026-07-23",
@@ -595,7 +606,7 @@
       {
         "date": "2026-07-15",
         "time": "10am",
-        "title": "LIVE AUTOGRAPH ENTERTAINMENT, SPORT, SPACE, MUSIC AND HISTORICAL"
+        "title": "Live Autograph Entertainment, Sport, Space, Music and Historical"
       },
       {
         "date": "2026-07-15",
@@ -876,7 +887,7 @@
       {
         "date": "2026-07-12",
         "time": "4pm",
-        "title": "Garden, Estate Clearance and Collectibles"
+        "title": "Garden, Estate Clearance and Collectables"
       }
     ],
     "Dreweatts 1759": [],
@@ -1025,6 +1036,11 @@
     "Etrusca Auctions": [
       {
         "date": "2026-07-09",
+        "time": "4pm",
+        "title": "Estate and Fine Jewellery Sale"
+      },
+      {
+        "date": "2026-07-16",
         "time": "4pm",
         "title": "Estate and Fine Jewellery Sale"
       }
@@ -1392,7 +1408,13 @@
         "title": "7 Day Timed Clearance Sale - Bargains Galore!!! - \u00a32 Starting Bids"
       }
     ],
-    "Huddersfield Auctions": [],
+    "Huddersfield Auctions": [
+      {
+        "date": "2026-07-12",
+        "time": "4pm",
+        "title": "Timed Auction Sale! LP Records, Singles, Fishing Equipment, And Much More"
+      }
+    ],
     "Hutchinson Scott Auctioneers": [],
     "Hyperion Auctions": [
       {
@@ -2019,7 +2041,13 @@
         "title": "Coming soon"
       }
     ],
-    "Morgan Evans & Co": [],
+    "Morgan Evans & Co": [
+      {
+        "date": "2026-07-16",
+        "time": "10am",
+        "title": "Antique & Fine Art Auction"
+      }
+    ],
     "Morley Auctioneers & Valuers": [],
     "Morphets of Harrogate Ltd": [
       {
@@ -2142,17 +2170,17 @@
     "Parker Fine Art Auctions": [
       {
         "date": "2026-07-09",
-        "time": "11am",
-        "title": "Fine Paintings and Frames, Fine Jewellery, Watches and Silver Sale"
-      },
-      {
-        "date": "2026-07-09",
         "time": "1:30pm",
         "title": "Fine Paintings and Frames, Fine Jewellery, Watches and Silver Sale"
       },
       {
         "date": "2026-07-09",
         "time": "2:30pm",
+        "title": "Fine Paintings and Frames, Fine Jewellery, Watches and Silver Sale"
+      },
+      {
+        "date": "2026-07-09",
+        "time": "11am",
         "title": "Fine Paintings and Frames, Fine Jewellery, Watches and Silver Sale"
       }
     ],
@@ -2181,7 +2209,13 @@
     ],
     "Peebles Auction House": [],
     "Perkins George Mawer & Co": [],
-    "Peter Francis Auctioneers Ltd": [],
+    "Peter Francis Auctioneers Ltd": [
+      {
+        "date": "2026-07-14",
+        "time": "12pm",
+        "title": "Second Chance to Bid Summer Welsh Fine Art Sale."
+      }
+    ],
     "Philangles Stamp Auctions": [],
     "Philip Serrell Auctioneers & Valuers Ltd": [],
     "Phixius Auctions": [],
@@ -2305,6 +2339,11 @@
         "date": "2026-07-29",
         "time": "10am",
         "title": "Auction of Antiques, Fine Art, Collectables, Jewellery, Furniture, Silver & More"
+      },
+      {
+        "date": "2026-07-30",
+        "time": "10am",
+        "title": "Military Collectors Auction featuring an Exceptional 65-Year Private Collection "
       }
     ],
     "Queens Road Auctions": [],
@@ -2555,7 +2594,7 @@
       {
         "date": "2026-07-23",
         "time": "7:30pm",
-        "title": "Online Only Ephemera, Artwork, Books, Stamps etc. Auction featuring a Set of Com"
+        "title": "Online Only Ephemera, Books, Stamps etc. Auction featuring an Iranian Embassy Si"
       },
       {
         "date": "2026-07-26",
@@ -2732,7 +2771,18 @@
     "Taylors Auctions (Montrose) Ltd": [],
     "Terry's Sports Auctions": [],
     "The Auction Room London": [],
-    "The Canterbury Auction Galleries": [],
+    "The Canterbury Auction Galleries": [
+      {
+        "date": "2026-07-31",
+        "time": "10am",
+        "title": "The Peter Firmin Collection - Friday 31st July - Lots 1-319 and Saturday 1st Aug"
+      },
+      {
+        "date": "2026-08-01",
+        "time": "10am",
+        "title": "The Peter Firmin Collection - Friday 31st July - Lots 1-319 and Saturday 1st Aug"
+      }
+    ],
     "The Coinery": [],
     "The Great Western Auctions Ltd": [
       {
