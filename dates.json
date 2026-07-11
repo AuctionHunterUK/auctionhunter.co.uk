@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-11T01:36:48.229739",
+  "scraped_at": "2026-07-11T08:52:33.527384",
   "houses": {
     "1888 Auctioneers": [],
     "A & C Auctions of Pendle": [
@@ -1421,7 +1421,13 @@
         "title": "2 Day Auction of Antique, Vintage & Collectables (Saturday 18th & Sunday 19th Ju"
       }
     ],
-    "Homefront Auctions": [],
+    "Homefront Auctions": [
+      {
+        "date": "2026-07-17",
+        "time": "12pm",
+        "title": "General Auction - Multiple Estates - Gold, Jewellery, Memorabilia, Cameras, Warh"
+      }
+    ],
     "Hosker Haynes Auctioneers": [],
     "House & Son Auctioneers & Valuers": [
       {
@@ -1569,7 +1575,18 @@
         "title": "Interiors & Jewellery"
       }
     ],
-    "JH Auctions LTD": [],
+    "JH Auctions LTD": [
+      {
+        "date": "2026-07-15",
+        "time": "10am",
+        "title": "All Day General Sale - Inc; 9ct Gold, Wine, Antique Furniture, Mobility Goods, W"
+      },
+      {
+        "date": "2026-07-15",
+        "time": "4pm",
+        "title": "All Day General Sale - Inc; 9ct Gold, Wine, Antique Furniture, Mobility Goods, W"
+      }
+    ],
     "John Cowell Auctions": [],
     "John Goodwin": [
       {
@@ -1966,7 +1983,13 @@
       }
     ],
     "Ma San Auction": [],
-    "Main Line Railwayana Auctions Limited": [],
+    "Main Line Railwayana Auctions Limited": [
+      {
+        "date": "2026-07-25",
+        "time": "10am",
+        "title": "July Railwayana Sale - 15% Buyer's Premium, No Extra Fees Added for Online Biddi"
+      }
+    ],
     "Mark Hill Auctions": [],
     "marketplace@dawsons": [],
     "Martello Auctions": [],
