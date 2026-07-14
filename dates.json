@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-14T01:36:40.618095",
+  "scraped_at": "2026-07-14T09:51:08.500245",
   "houses": {
     "1888 Auctioneers": [],
     "A & C Auctions of Pendle": [],
@@ -191,7 +191,7 @@
       {
         "date": "2026-07-27",
         "time": "7:30pm",
-        "title": "TIMED Dylan Oaks Jewellery Auction"
+        "title": "Timed Dylan Oaks Jewellery Auction"
       },
       {
         "date": "2026-07-29",
@@ -1984,13 +1984,7 @@
         "title": "Collectors, Interiors & Antiques"
       }
     ],
-    "Mayfair Auctions": [
-      {
-        "date": "2026-07-15",
-        "time": "9:55am",
-        "title": "Summer Jewels & Watches"
-      }
-    ],
+    "Mayfair Auctions": [],
     "McAfee Auctions": [],
     "McCartneys": [
       {
@@ -2138,7 +2132,13 @@
         "title": "Vintage & Modern Fishing Tackle and Related Items"
       }
     ],
-    "Mulready Philatelics": [],
+    "Mulready Philatelics": [
+      {
+        "date": "2026-07-31",
+        "time": "10am",
+        "title": "Great Britain and All World Stamp Timed Auction"
+      }
+    ],
     "Nesbits Auctions Ltd": [],
     "Nick Barber Auctions": [],
     "NLB Auctions": [
@@ -2398,7 +2398,7 @@
       {
         "date": "2026-07-20",
         "time": "9am",
-        "title": "Antique & Home sale"
+        "title": "Antique & Home Sale"
       }
     ],
     "Richnoddystamps Auctions": [],
@@ -2672,7 +2672,18 @@
       }
     ],
     "Square & Compass Auctioneers": [],
-    "Stacey's Auctioneers and Valuers": [],
+    "Stacey's Auctioneers and Valuers": [
+      {
+        "date": "2026-08-25",
+        "time": "10am",
+        "title": "Jewellery, Silver & Gold"
+      },
+      {
+        "date": "2026-08-26",
+        "time": "10am",
+        "title": "Antiques & Collectables"
+      }
+    ],
     "Stafford Auctions": [
       {
         "date": "2026-08-16",
@@ -2885,7 +2896,7 @@
       {
         "date": "2026-07-16",
         "time": "11:30am",
-        "title": "Carlisle UK - Thursday 16th July \n310 Lots of Antiquarian & Colectable Books, be"
+        "title": "Carlisle UK - Thursday 16th July \r\n310 Lots of Antiquarian & Collectable Books, "
       },
       {
         "date": "2026-07-23",
