@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-07-18T01:36:34.145589",
+  "scraped_at": "2026-07-18T08:50:54.864290",
   "houses": {
     "1888 Auctioneers": [],
     "A & C Auctions of Pendle": [
@@ -301,7 +301,18 @@
     ],
     "Batemans of Stamford": [],
     "BBR Auctions": [],
-    "Bearnes Hampton & Littlewood": [],
+    "Bearnes Hampton & Littlewood": [
+      {
+        "date": "2026-08-04",
+        "time": "9:30am",
+        "title": "Sporting & Collectors"
+      },
+      {
+        "date": "2026-08-05",
+        "time": "9:30am",
+        "title": "Sporting & Collectors"
+      }
+    ],
     "Beccles Auctions": [
       {
         "date": "2026-07-19",
@@ -1578,7 +1589,18 @@
         "title": "Interiors & Jewellery"
       }
     ],
-    "JH Auctions LTD": [],
+    "JH Auctions LTD": [
+      {
+        "date": "2026-07-22",
+        "time": "10am",
+        "title": "All Day General Sale - Inc; Rattan Furniture, Antique Furniture, Wood Working To"
+      },
+      {
+        "date": "2026-07-22",
+        "time": "4pm",
+        "title": "All Day General Sale - Inc; Rattan Furniture, Antique Furniture, Wood Working To"
+      }
+    ],
     "John Cowell Auctions": [
       {
         "date": "2026-07-24",
@@ -3258,7 +3280,28 @@
         "title": "Antiques, Collectables & Furniture"
       }
     ],
-    "Westcountry Auctions": [],
+    "Westcountry Auctions": [
+      {
+        "date": "2026-08-01",
+        "time": "10am",
+        "title": "Antiques & General Sale: Silver, Silver Plate, China, Pictures, Lighting, Antiqu"
+      },
+      {
+        "date": "2026-08-29",
+        "time": "10am",
+        "title": "Antiques & General Sale: Silver, Silver Plate, China, Pictures, Lighting, Antiqu"
+      },
+      {
+        "date": "2026-09-26",
+        "time": "10am",
+        "title": "Antiques & General Sale: Silver, Silver Plate, China, Pictures, Lighting, Antiqu"
+      },
+      {
+        "date": "2026-10-31",
+        "time": "10am",
+        "title": "Antiques & General Sale: Silver, Silver Plate, China, Pictures, Lighting, Antiqu"
+      }
+    ],
     "Western Salerooms Ltd": [],
     "Whittaker & Biggs": [
       {
